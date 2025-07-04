@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.currency-conversion-rate"
+          path="/org/gnome/shell/extensions/currency-conversion-rate/">
+    <key name="base-currency" type="s">
+      <default>'USD'</default>
+      <summary>Base Currency</summary>
+      <description>The currency to convert from</description>
+    </key>
+    <key name="target-currency" type="s">
+      <default>'EUR'</default>
+      <summary>Target Currency</summary>
+      <description>The currency to convert to</description>
+    </key>
+  </schema>
+</schemalist>

@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@girs/adw-1": "^1.8.0-4.0.0-beta.25",
+    "@girs/gjs": "^4.0.0-beta.25",
+    "@girs/gnome-shell": "^48.0.2",
+    "@girs/gtk-4.0": "^4.19.1-4.0.0-beta.25"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "uuid": "currency-conversion-rate@optimus",
+  "name": "Currency Conversion Rate",
+  "description": "Displays real-time currency conversion rates on the GNOME top panel",
+  "version": 1,
+  "shell-version": ["45", "46", "47"],
+  "url": "https://github.com/yourusername/currency-conversion-rate",
+  "settings-schema": "org.gnome.shell.extensions.currency-conversion-rate"
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "resource:///*": [
+        "./node_modules/@girs/gnome-shell/src/*"
+      ],
+      "gi://*": [
+        "./node_modules/@girs/gjs/src/gjs-elements/*",
+        "./node_modules/@girs/gtk-4.0/gtk-4.0-ambient.js",
+        "./node_modules/@girs/adw-1/adw-1-ambient.js",
+        "./node_modules/@girs/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
