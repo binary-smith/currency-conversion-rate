@@ -6,7 +6,7 @@
 A simple and elegant GNOME Shell extension that displays real-time currency conversion rates directly on your top panel.
 
 
-*(You should replace this with an actual screenshot of your extension)*
+![Extension Screenshot 1](screenshots/img.png)
 
 ## Features
 
@@ -23,7 +23,7 @@ A simple and elegant GNOME Shell extension that displays real-time currency conv
 
 The easiest way to install is from the official GNOME Extensions website.
 
-1.  Go to the Currency Conversion Rate page on extensions.gnome.org *(This link will be active once you publish it)*.
+1.  Go to the Currency Conversion Rate page on extensions.gnome.org *(TBD - This link will be active once published)*.
 2.  Click the "ON/OFF" switch.
 3.  Click "Install" in the pop-up dialog.
 
