@@ -1,0 +1,55 @@
+# .github/workflows/release.yml
+
+name: Build Extension Zip
+
+# This action will trigger on:
+# 1. A push to the 'main' branch.
+# 2. A push of a new tag (e.g., v1.0, v1.1.0).
+# 3. A manual run from the GitHub Actions tab.
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Package
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository's code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Read UUID and Version from metadata.json
+      # This step uses 'jq' to parse the JSON and sets the values as outputs
+      # that can be used in later steps.
+      - name: Get metadata from metadata.json
+        id: metadata
+        run: |
+          echo "uuid=$(jq -r '.uuid' metadata.json)" >> $GITHUB_OUTPUT
+          echo "version=$(jq -r '.version' metadata.json)" >> $GITHUB_OUTPUT
+
+      # 3. Create the zip file with the correct name and contents
+      # The filename must be <uuid>-<version>.zip for extensions.gnome.org
+      - name: Create extension zip file
+        run: |
+          zip -r "${{ steps.metadata.outputs.uuid }}-${{ steps.metadata.outputs.version }}.zip" \
+            extension.js \
+            prefs.js \
+            convenience.js \
+            metadata.json \
+            schemas/
+
+      # 4. Upload the generated zip file as a build artifact
+      # This makes the file available for download from the action's summary page.
+      - name: Upload zip as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          # The name of the artifact bundle
+          name: currency-conversion-rate-zip
+          # The path to the file(s) to upload
+          path: "*.zip"
+          # How long to keep the artifact (in days)
+          retention-days: 7
