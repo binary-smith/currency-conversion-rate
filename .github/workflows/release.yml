@@ -35,7 +35,9 @@ jobs:
       # The filename must be <uuid>-<version>.zip for extensions.gnome.org
       - name: Create extension zip file
         run: |
-          zip -r "${{ steps.metadata.outputs.uuid }}-${{ steps.metadata.outputs.version }}.zip" \
+          ZIP_NAME="${{ steps.metadata.outputs.uuid }}-${{ steps.metadata.outputs.version }}.zip"
+          echo "Creating $ZIP_NAME"
+          zip -r "$ZIP_NAME" \
             extension.js \
             prefs.js \
             convenience.js \
@@ -47,9 +49,9 @@ jobs:
       - name: Upload zip as artifact
         uses: actions/upload-artifact@v4
         with:
-          # The name of the artifact bundle
-          name: currency-conversion-rate
-          # The path to the file(s) to upload
-          path: "*.zip"
+          # Use the actual zip filename as the artifact name
+          name: "${{ steps.metadata.outputs.uuid }}-${{ steps.metadata.outputs.version }}"
+          # The path to the specific zip file
+          path: "${{ steps.metadata.outputs.uuid }}-${{ steps.metadata.outputs.version }}.zip"
           # How long to keep the artifact (in days)
           retention-days: 7
