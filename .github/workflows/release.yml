@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           # The name of the artifact bundle
-          name: currency-conversion-rate-zip
+          name: currency-conversion-rate
           # The path to the file(s) to upload
           path: "*.zip"
           # How long to keep the artifact (in days)
