@@ -292,7 +292,7 @@ const CurrencyIndicator = GObject.registerClass(
           // Generate dates for today and the last 10 days
           const dates = [];
           const today = GLib.DateTime.new_now_local();
-          for (let i = 0; i < 11; i++) { // Today + 10 previous days
+          for (let i = 0; i < 10; i++) { // Today + 9 previous days
             dates.push(today.add_days(-i).format('%Y-%m-%d'));
           }
 
@@ -332,7 +332,7 @@ const CurrencyIndicator = GObject.registerClass(
             rate: res[base]?.[target],
           })).reverse(); // Oldest first
 
-          // Update the line chart with historical data (excluding today)
+          // Update the line chart with historical data (including today)
           this._lineChart.updateData(historicalRates.slice(0, 10));
         } catch (e) {
           console.error(`[CurrencyConverter] Failed to update rate: ${e}`);
